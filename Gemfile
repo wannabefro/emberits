@@ -24,6 +24,8 @@ gem 'ember-source', '1.0.0'
 # Devise
 gem 'devise'
 
+gem 'acts-as-taggable-on'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -35,6 +37,8 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+gem "active_model_serializers"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

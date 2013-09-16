@@ -1,5 +1,10 @@
 // For more information see: http://emberjs.com/guides/routing/
 
-Emberits.Router.map(function() {
-  // this.resource('posts');
+App.Router.reopen({
+  location: "history"
+});
+
+App.Router.map(function() {
+  this.route("index", {path: "/"});
+  this.resource('mits');
 });
