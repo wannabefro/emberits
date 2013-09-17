@@ -3,6 +3,7 @@ App.Mit = DS.Model.extend({
   description: DS.attr('string'),
   tag_list: DS.attr('string'),
   day: DS.belongsTo('day'),
+  comments: DS.hasMany('comment'),
 
   tagArray: function(){
     return this.get('tag_list').split(',').filter(function(v){return v!==''});

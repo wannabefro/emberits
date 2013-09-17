@@ -1,4 +1,4 @@
 App.MitsController = Ember.ArrayController.extend({
-  itemController: 'mit'
+  needs: "days"
 });
 

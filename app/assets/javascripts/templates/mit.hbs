@@ -1,0 +1,36 @@
+<div class="mit">
+  <div class="page-header">
+    <h1>
+      {{title}}
+      <small> from {{day.niceDate}}
+        {{#if tagArray.length}}
+          <span class="pull-right">
+            {{#each tag in tagArray}}
+              <span class="label label-primary">
+                {{tag}}
+              </span>
+            {{/each}}
+          </span>
+        {{/if}}
+      </small>
+    </h1>
+  </div>
+  {{#if description}}
+    <p class="lead">{{description}}</p>
+  {{else}}
+    <p class="lead">No description available</p>
+  {{/if}}
+  <hr>
+  {{#if comments.length}}
+    <div class="comments">
+      {{#each comment in comments}}
+        <li class="comment">
+          <p class="author"><strong>Username</strong> - {{comment.timeAgo}}</p>
+          <span>
+            {{comment.content}}
+          </span>
+        </li>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>
