@@ -1,0 +1,37 @@
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+{{#link-to 'index' classNames='navbar-brand'}}EmberITs{{/link-to}}
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Account</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">MITs <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">New MIT</a></li>
+          <li>{{#link-to 'days'}}View MIT's{{/link-to}}</li>
+          <li><a href="#">Awesome other thing</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Sign In</a></li>
+
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+<div class="container">
+  {{outlet}}
+</div>

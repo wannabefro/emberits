@@ -1,0 +1,10 @@
+<div class="col-md-4">
+  <div class="list-group">
+    {{#each day in controller}}
+      {{#link-to 'day' day classNames='list-group-item'}}{{day.niceDate}}<span class="badge">{{day.mits.length}}</span>{{/link-to}}
+    {{/each}}
+  </div>
+</div>
+<div class="col-md-6">
+  {{outlet}}
+</div>

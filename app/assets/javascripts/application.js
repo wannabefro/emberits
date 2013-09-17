@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require vendor/moment
 //= require handlebars
 //= require ember
 //= require ember-data
@@ -21,6 +21,6 @@
 //= require twitter/bootstrap
 
 // for more details see: http://emberjs.com/guides/application/
-Emberits = Ember.Application.create();
+App = Ember.Application.create();
 
 //= require_tree .

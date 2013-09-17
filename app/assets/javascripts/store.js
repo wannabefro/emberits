@@ -1,6 +1,8 @@
 // http://emberjs.com/guides/models/defining-a-store/
 
-Emberits.Store = DS.Store.extend({
-  revision: 13,
-  adapter: DS.RESTAdapter.create()
+App.Store = DS.Store.extend({
+  adapter: DS.RESTAdapter.extend({
+    namespace: 'api'
+  })
 });
+
