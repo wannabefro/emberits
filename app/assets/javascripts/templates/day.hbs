@@ -3,15 +3,22 @@
     <h1>MIT's <small>for {{niceDate}}</small></h1>
   </div>
   {{#each mit in mits}}
-    <h3>
-      {{mit.title}}
-      {{#if mit.tagArray.length}}
-        {{#each tag in mit.tagArray}}
-          <span class='label label-default'>{{tag}}</span>
-        {{/each}}
+  <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          {{mit.title}}
+          {{#if mit.tagArray.length}}
+            {{#each tag in mit.tagArray}}
+              <span class='label label-info'>{{tag}}</span>
+            {{/each}}
+          {{/if}}
+        </h3>
+      </div>
+      {{#if mit.description.length}}
+        <div class="panel-body">
+          <p>{{mit.description}}</p>
+        </div>
       {{/if}}
-    </h3>
-    <p>{{mit.description}}</p>
-    <hr>
-  {{/each}}
+    </div>
+    {{/each}}
 </div>
