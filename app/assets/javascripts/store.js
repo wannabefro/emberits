@@ -5,3 +5,4 @@ App.Store = DS.Store.extend({
     namespace: 'api'
   })
 });
+

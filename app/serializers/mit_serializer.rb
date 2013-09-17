@@ -1,4 +1,4 @@
 class MitSerializer < ActiveModel::Serializer
-  embed :ids, include: true
-  attributes :title, :description, :date, :id, :tag_list
+  embed :ids
+  attributes :title, :description, :day_id, :id, :tag_list
 end

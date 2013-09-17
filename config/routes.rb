@@ -8,6 +8,7 @@ Emberits::Application.routes.draw do
   root 'application#index'
 
   namespace :api do
+    resources :days
     resources :mits
   end
 
