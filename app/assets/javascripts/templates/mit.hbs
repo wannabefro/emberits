@@ -6,9 +6,7 @@
         {{#if tags.length}}
           <span class="pull-right">
             {{#each tag in tags}}
-              <span class="label label-primary">
-                {{tag.name}}
-              </span>
+              {{#link-to 'tag' tag.id tagName="a" classNames = "label label-primary"}}{{tag.name}}{{/link-to}}
             {{/each}}
           </span>
         {{/if}}

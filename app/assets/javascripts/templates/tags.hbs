@@ -1,5 +1,11 @@
-<ul class="nav nav-pills pager">
-  {{#each}}
-    <li>{{#link-to 'tag' this}}{{name}}<span class="badge pull-right">{{mits.length}}</span>{{/link-to}}</li>
-  {{/each}}
-</ul>
+<div class="col-md-4">
+  <div class="list-group">
+    {{#each}}
+      {{#link-to 'tag' this  classNames='list-group-item'}}{{name}}<span class="badge">{{mits.length}}</span>{{/link-to}}
+    {{/each}}
+ </div>
+</div>
+
+<div class="col-md-8">
+  {{outlet}}
+</div>
