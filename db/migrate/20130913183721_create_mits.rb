@@ -1,12 +1,19 @@
 class CreateMits < ActiveRecord::Migration
   def change
+
     create_table :mits do |t|
 
       t.string :title, null: false
       t.text :description
-      t.date :date, null: false
+      t.boolean :complete, default: false
 
       t.timestamps
+    end
+
+    create_table :days do |t|
+
+      t.date :date, null: false
+
     end
   end
 end

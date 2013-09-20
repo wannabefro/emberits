@@ -1,6 +1,12 @@
-<h2>MITS</h2>
-<div>
-  {{#each}}
-  <p>{{title}}</p>
-  {{/each}}
+<div class="col-md-4">
+  <div class="list-group">
+    {{#eachKeyValue mitDay}}
+      {{#link-to 'mits.filtered' this.key  classNames='list-group-item'}}{{this.key}}<span class="badge">{{this.value.length}}</span>{{/link-to}}
+    {{/eachKeyValue}}
+ </div>
 </div>
+
+<div class="col-md-8">
+  {{outlet}}
+</div>
+
