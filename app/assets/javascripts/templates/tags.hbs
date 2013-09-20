@@ -1,0 +1,5 @@
+<ul class="nav nav-pills pager">
+  {{#each}}
+    <li>{{#link-to 'tag' this}}{{name}}<span class="badge pull-right">{{mits.length}}</span>{{/link-to}}</li>
+  {{/each}}
+</ul>

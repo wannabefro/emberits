@@ -7,8 +7,8 @@
 
 
 
-// Version: v1.0.0-beta.1-217-gae8ba70
-// Last commit: ae8ba70 (2013-09-16 08:59:47 -0700)
+// Version: v1.0.0-beta.1-225-g995b366
+// Last commit: 995b366 (2013-09-19 00:19:18 -0700)
 
 
 (function() {
@@ -2146,7 +2146,7 @@ DS.Store = Ember.Object.extend(DS._Mappable, {
     @param {DS.Model} type
     @param {Object} data
     @param {Boolean} partial the data should be merged into
-      the existing fata, not replace it.
+      the existing data, not replace it.
   */
   _load: function(type, data, partial) {
     var id = coerceId(data.id),
@@ -2259,6 +2259,44 @@ DS.Store = Ember.Object.extend(DS._Mappable, {
     this._load(type, data, _partial);
 
     return this.recordForId(type, data.id);
+  },
+
+  /**
+    Push some raw data into the store.
+
+    The data will be automatically deserialized using the
+    serializer for the `type` param.
+
+    This method can be used both to push in brand new
+    records, as well as to update existing records.
+
+    You can push in more than one type of object at once.
+    All objects should be in the format expected by the
+    serializer.
+
+    ```js
+    App.ApplicationSerializer = DS.ActiveModelSerializer;
+
+    var pushData = {
+      posts: [
+        {id: 1, post_title: "Great post", comment_ids: [2]}
+      ],
+      comments: [
+        {id: 2, comment_body: "Insightful comment"}
+      ]
+    }
+
+    store.pushPayload('post', pushData);
+    ```
+
+    @method push
+    @param {String} type
+    @param {Object} payload
+  */
+
+  pushPayload: function (type, payload) {
+    var serializer = this.serializerFor(type);
+    serializer.pushPayload(this, payload);
   },
 
   update: function(type, data) {
@@ -3107,6 +3145,7 @@ var RootState = {
 
     pushedData: function(record) {
       record.transitionTo('loaded.saved');
+      record.triggerLater('didLoad');
     }
   },
 
@@ -4560,7 +4599,8 @@ function asyncBelongsTo(type, options, meta) {
     belongsTo = data[key];
 
     if(!isNone(belongsTo)) {
-      return store.fetchRecord(belongsTo);
+      var promise = store.fetchRecord(belongsTo) || Ember.RSVP.resolve(belongsTo);
+      return DS.PromiseObject.create({promise: promise});
     } else {
       return null;
     }
@@ -7516,7 +7556,7 @@ Ember.Inflector.defaultRules = {
 
 
 (function() {
-if (Ember.EXTEND_PROTOTYPES) {
+if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.String) {
   /**
     See {{#crossLink "Ember.String/pluralize"}}{{/crossLink}}
 

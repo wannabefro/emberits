@@ -1,13 +1,15 @@
 App.Mit = DS.Model.extend({
   title: DS.attr('string'),
+  created_at: DS.attr(),
   description: DS.attr('string'),
-  tag_list: DS.attr('string'),
-  day: DS.belongsTo('day'),
   comments: DS.hasMany('comment'),
+  tags: DS.hasMany('tag'),
 
-  tagArray: function(){
-    return this.get('tag_list').split(',').filter(function(v){return v!==''});
-  }.property('tag_list')
+  date: function(){
+     return moment(this.get('created_at')).format("MM-DD-YYYY");
+  }.property('created_at')
+
+
 
 });
 

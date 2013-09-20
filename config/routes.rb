@@ -8,8 +8,9 @@ Emberits::Application.routes.draw do
   root 'application#index'
 
   namespace :api do
-    resources :days
+    resources :comments
     resources :mits
+    resources :tags
   end
 
   # Example of regular route:

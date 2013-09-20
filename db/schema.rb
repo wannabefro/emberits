@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130917123955) do
+ActiveRecord::Schema.define(version: 20130918144613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(version: 20130917123955) do
   end
 
   create_table "mits", force: true do |t|
-    t.string   "title",       null: false
+    t.string   "title",                       null: false
     t.text     "description"
-    t.integer  "day_id",      null: false
+    t.boolean  "complete",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

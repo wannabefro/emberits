@@ -5,7 +5,7 @@ class CreateMits < ActiveRecord::Migration
 
       t.string :title, null: false
       t.text :description
-      t.integer :day_id, null: false
+      t.boolean :complete, default: false
 
       t.timestamps
     end

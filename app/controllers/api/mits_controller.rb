@@ -1,7 +1,7 @@
 class Api::MitsController < ApplicationController
 
   def index
-    @mits = Mit.where(:id => params[:ids]).all
+    @mits = Mit.all
     render json: @mits
   end
 

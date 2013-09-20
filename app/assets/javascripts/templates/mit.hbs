@@ -2,12 +2,12 @@
   <div class="page-header">
     <h1>
       {{title}}
-      <small> from {{day.niceDate}}
-        {{#if tagArray.length}}
+      <small> from {{niceDate created_at}}
+        {{#if tags.length}}
           <span class="pull-right">
-            {{#each tag in tagArray}}
+            {{#each tag in tags}}
               <span class="label label-primary">
-                {{tag}}
+                {{tag.name}}
               </span>
             {{/each}}
           </span>
@@ -25,7 +25,7 @@
     <div class="comments">
       {{#each comment in comments}}
         <li class="comment">
-          <p class="author"><strong>Username</strong> - {{comment.timeAgo}}</p>
+          <p class="author"><strong>Username</strong> - {{timeAgo comment.created_at}}</p>
           <span>
             {{comment.content}}
           </span>

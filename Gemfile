@@ -26,6 +26,7 @@ gem 'devise'
 
 gem 'acts-as-taggable-on'
 
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
