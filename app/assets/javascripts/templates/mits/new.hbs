@@ -1,0 +1,29 @@
+<div class="new-mit">
+  <h1>New MIT <small>for {{today}}</small></h1>
+  <hr>
+  <div class="form horizontal">
+    <div {{bind-attr class=":form-group errors.title:has-error"}}>
+      {{input type="text" value=title class="form-control" placeholder="New MIT"}}
+      {{#if errors.name }}
+        <span class="help-block">{{format-error errors.name}}</span>
+      {{/if}}
+    </div>
+    <div {{bind-attr class=":form-group errors.description:has-error"}}>
+      {{textarea value=description class="form-control" placeholder="Description"}}
+      {{#if errors.description }}
+        <span class="help-block">{{format-error errors.description}}</span>
+      {{/if}}
+    </div>
+    <div {{bind-attr class=":form-group errors.description:has-error"}}>
+      {{textarea value=tagList class="form-control" placeholder="Enter any tags"}}
+      {{#if errors.description }}
+        <span class="help-block">{{format-error errors.tags}}</span>
+      {{/if}}
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" {{action "save"}}>Create MIT</button>
+      <a href="javascript:;" {{action 'cancel'}} class="btn btn-warning">Cancel</a>
+    </div>
+  </form>
+</div>
+</div>

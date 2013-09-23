@@ -3,6 +3,7 @@ App.Mit = DS.Model.extend({
   created_at: DS.attr(),
   description: DS.attr('string'),
   comments: DS.hasMany('comment'),
+  tagList: DS.attr('string'),
   tags: DS.hasMany('tag'),
 
   date: function(){

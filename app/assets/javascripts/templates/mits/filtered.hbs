@@ -10,7 +10,7 @@
             {{mit.title}}
             {{#if mit.tags.length}}
               {{#each tag in mit.tags}}
-                <span class='label label-info'>{{tag.name}}</span>
+                {{#link-to 'tag' tag.id tagName="a" classNames = "label label-info"}}{{tag.name}}{{/link-to}}
               {{/each}}
             {{/if}}
             <small class="pull-right">{{mit.comments.length}} comment{{pluralize mit.comments.length}} </small>

@@ -6,6 +6,10 @@ class Mit < ActiveRecord::Base
   validates_length_of :description, maximum: 500
 
   has_many :comments
-  # has_many :tags, as: :taggable
+
+
+  def niceDate
+    created_at.strftime("%m-%d-%Y")
+  end
 
 end
