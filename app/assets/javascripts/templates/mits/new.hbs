@@ -16,6 +16,7 @@
     </div>
     <div {{bind-attr class=":form-group errors.description:has-error"}}>
       {{textarea value=tagList class="form-control" placeholder="Enter any tags"}}
+      <span class="help-block">Seperate each tag with a comma</span>
       {{#if errors.description }}
         <span class="help-block">{{format-error errors.tags}}</span>
       {{/if}}

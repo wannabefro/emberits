@@ -1,6 +1,5 @@
 App.MitsController = Ember.ArrayController.extend({
-
- mitDay: function(){
+  mitDays: function(){
     var uniqueDays = {};
     var days = this.get('content').mapBy('date').uniq();
     var sortedDays = days.sort(function(a,b){
@@ -11,8 +10,5 @@ App.MitsController = Ember.ArrayController.extend({
     sortedDays.forEach(function(item) {uniqueDays[item] = [] });
     this.get('content').map(function(item){return uniqueDays[item.get('date')].push(item)});
     return uniqueDays;
-  }.property('content')
-
-
+  }.property('content@each')
 });
-

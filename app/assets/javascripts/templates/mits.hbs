@@ -1,7 +1,10 @@
 <div class="col-md-4">
   <div class="list-group">
-    {{#eachKeyValue mitDay}}
-      {{#link-to 'mits.filtered' this.key  classNames='list-group-item'}}{{this.key}}<span class="badge">{{this.value.length}}</span>{{/link-to}}
+    {{#eachKeyValue mitDays}}
+      {{#link-to 'mits.filtered' key classNames='list-group-item'}}
+        {{key}}
+        <span class="badge">{{value.length}}</span>
+      {{/link-to}}
     {{/eachKeyValue}}
  </div>
 </div>

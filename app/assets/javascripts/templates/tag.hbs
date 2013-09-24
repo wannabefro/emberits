@@ -3,11 +3,12 @@
     <h1>MIT's <small>for {{name}}</small></h1>
   </div>
   {{#each mit in mits}}
-    {{#link-to 'mit' mit}}
       <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title">
-            {{mit.title}}
+            {{#link-to 'mit' mit}}
+              {{mit.title}}
+            {{/link-to}}
             {{#if mit.tagArray.length}}
               {{#each tag in mit.tagArray}}
                 <span class='label label-info'>{{tag}}</span>
@@ -22,6 +23,5 @@
           </div>
         {{/if}}
       </div>
-    {{/link-to}}
   {{/each}}
 </div>

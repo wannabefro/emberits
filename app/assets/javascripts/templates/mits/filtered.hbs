@@ -3,25 +3,25 @@
     <h1>MIT's <small>for {{niceDate date}}</small></h1>
   </div>
   {{#each mit in filteredMits}}
-    {{#link-to 'mit' mit}}
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          {{#link-to 'mit' mit}}
             {{mit.title}}
-            {{#if mit.tags.length}}
-              {{#each tag in mit.tags}}
-                {{#link-to 'tag' tag.id tagName="a" classNames = "label label-info"}}{{tag.name}}{{/link-to}}
-              {{/each}}
-            {{/if}}
-            <small class="pull-right">{{mit.comments.length}} comment{{pluralize mit.comments.length}} </small>
-          </h3>
-        </div>
-        {{#if mit.description.length}}
-          <div class="panel-body">
-            <p>{{mit.description}}</p>
-          </div>
-        {{/if}}
+          {{/link-to}}
+          {{#if mit.tags.length}}
+            {{#each tag in mit.tags}}
+              {{#link-to 'tag' tag.id tagName="a" classNames = "label label-info"}}{{tag.name}}{{/link-to}}
+            {{/each}}
+          {{/if}}
+          <small class="pull-right">{{mit.comments.length}} comment{{pluralize mit.comments.length}} </small>
+        </h3>
       </div>
-    {{/link-to}}
+      {{#if mit.description.length}}
+        <div class="panel-body">
+          <p>{{mit.description}}</p>
+        </div>
+      {{/if}}
+    </div>
   {{/each}}
 </div>

@@ -1,5 +1,7 @@
 App.MitsFilteredController = Ember.ObjectController.extend({
   needs: ['mits'],
+  sortProperties: ['date'],
+  sortAsending: false,
 
   filteredMits: (function() {
     var date = this.get('content').date;

@@ -9,7 +9,7 @@ App.MitsNewController = Ember.ObjectController.extend({
       return this.get('content').rollback();
     }
   },
-  onDidCreate: function(project) {
+  onDidCreate: function(mit) {
     this.store.push('mit', mit.get('data'));
     return this.transitionToRoute('mit', mit);
   },
@@ -23,3 +23,5 @@ App.MitsNewController = Ember.ObjectController.extend({
 
 
 });
+
+
