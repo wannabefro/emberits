@@ -5,6 +5,7 @@ App.Mit = DS.Model.extend({
   comments: DS.hasMany('comment'),
   tagList: DS.attr('string'),
   tags: DS.hasMany('tag'),
+  user: DS.belongsTo('user'),
 
   date: function(){
      return moment(this.get('created_at')).format("MM-DD-YYYY");

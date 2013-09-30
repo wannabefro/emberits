@@ -2,6 +2,7 @@ App.Comment = DS.Model.extend({
 
   content: DS.attr('string'),
   created_at: DS.attr(),
-  mit: DS.belongsTo('mit')
+  mit: DS.belongsTo('mit'),
+  user: DS.belongsTo('user')
 
 });

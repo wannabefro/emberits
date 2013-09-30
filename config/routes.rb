@@ -1,5 +1,11 @@
 Emberits::Application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'session', registrations: 'registrations' }
+  devise_scope :user do
+    post "session" => "session#create"
+    get "session" => "session#show"
+    delete "session" => "session#destroy"
+    post "registrations" => "registrations#create"
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -12,6 +18,7 @@ Emberits::Application.routes.draw do
     resources :comments
     resources :mits
     resources :tags
+    resources :users, only: [:show]
   end
 
   # Example of regular route:

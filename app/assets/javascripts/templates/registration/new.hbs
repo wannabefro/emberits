@@ -1,0 +1,38 @@
+<div class="new-user">
+  <h1>Sign up</h1>
+  <hr>
+  <div class="form horizontal">
+    <div {{bind-attr class=":form-group errors.username:has-error"}}>
+      {{input type="text" value=username class="form-control" placeholder="username"}}
+      {{#if errors.username }}
+        <span class="help-block">{{format-error errors.username}}</span>
+      {{/if}}
+    </div>
+    <div {{bind-attr class=":form-group errors.email:has-error"}}>
+      {{input type="text" value=email class="form-control" placeholder="example@example.com"}}
+      {{#if errors.email }}
+        <span class="help-block">{{format-error errors.email}}</span>
+      {{/if}}
+    </div>
+    <div {{bind-attr class=":form-group errors.password:has-error"}}>
+      {{input type="password" value=password class="form-control" placeholder="password"}}
+      {{#if errors.password }}
+        <span class="help-block">{{format-error errors.password}}</span>
+      {{/if}}
+    </div>
+    <div {{bind-attr class=":form-group errors.password_confirmationhas-error"}}>
+      {{input type="password" value=password_confirmation class="form-control" placeholder="password confirmation"}}
+      {{#if errors.password_confirmation }}
+        <span class="help-block">{{format-error errors.password_confirmation}}</span>
+      {{/if}}
+    </div>
+
+
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" {{action "signUp"}}>Sign Up</button>
+      <a href="javascript:;" {{action 'cancel'}} class="btn btn-warning">Cancel</a>
+    </div>
+  </form>
+</div>
+</div>

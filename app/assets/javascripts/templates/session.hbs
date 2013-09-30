@@ -1,0 +1,11 @@
+<form class="navbar-form" {{action login on="submit"}}>
+  <div class="form-group">
+    {{input class="username form-control" value=username type="text" placeholder="Username"}}
+  </div>
+  <div class="form-group">
+    {{input class="password form-control" value=password type="password" placeholder="Password"}}
+  </div>
+  {{input class="submit btn btn-primary" type="submit" value="Login"}}
+</form>
+{{#if errorMessage}}<span class="text-danger">{{errorMessage}}</span>{{/if}}
+

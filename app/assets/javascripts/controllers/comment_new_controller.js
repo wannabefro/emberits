@@ -1,4 +1,4 @@
-App.MitsNewController = Ember.ObjectController.extend({
+App.CommentNewController = Ember.ObjectController.extend({
   needs: 'session',
 
   actions: {
@@ -27,5 +27,3 @@ App.MitsNewController = Ember.ObjectController.extend({
 
 
 });
-
-
