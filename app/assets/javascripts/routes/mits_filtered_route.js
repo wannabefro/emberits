@@ -1,5 +1,7 @@
 // App.MitsFilteredRoute = Ember.Route.extend({
-//   model: function(params){
-//     this.store.find('mit').filterBy('params.date');
+//   model: function() {
+//     return this.store.find('mit').then(function(mit) {
+//       return mit;
+//     })
 //   }
 // });

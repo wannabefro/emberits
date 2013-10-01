@@ -1,4 +1,4 @@
-Ember.Handlebars.helper('eachKeyValue', function(context, options) {
+Ember.Handlebars.registerBoundHelper('eachKeyValue', function(context, options) {
     var ret = "";
     $.each(context, function(key, value) {
         var entry = {"key": key, "value": value};
