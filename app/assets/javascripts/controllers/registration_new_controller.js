@@ -13,6 +13,7 @@ App.RegistrationNewController = Ember.ObjectController.extend({
     }
   },
   onDidCreate: function(response) {
+    this.store.init();
     var sessionsController = this.get('controllers.session');
     this.store.push('user', response.user);
     sessionsController.setCurrentUser(response.user.id);

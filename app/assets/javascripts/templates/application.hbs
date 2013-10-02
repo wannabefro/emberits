@@ -31,8 +31,8 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {{#if controllers.session.isAuthenticated}}
+          <li><a href="#">{{controllers.session.currentUser.username}}</a></li>
           <li><a {{action 'logout' target="controllers.session"}} href="#">Logout</a></li>
-          {{!-- {{log currentUser}} --}}
         {{else}}
           <li>{{#link-to 'registration.new'}}Sign Up{{/link-to}}</li>
         {{/if}}

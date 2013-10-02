@@ -6,7 +6,9 @@ App.Router.map(function() {
   this.resource("mits", function() {
     this.route("filtered", {path: "/:date"});
     this.resource("mit", {path: "/:mit_id"}, function(){
-      this.resource('comment', {path: "comment"})
+      this.resource('comments', {path: "comment"}, function(){
+        this.route("new", {path: "/new"});
+      })
     });
     this.route("new", {path: "/new"});
   });

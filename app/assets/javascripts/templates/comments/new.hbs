@@ -1,0 +1,17 @@
+<div class="new-mit">
+ <hr>
+  <form>
+  <div class="form horizontal">
+    <div {{bind-attr class=":form-group errors.body:has-error"}}>
+      {{textarea value=body class="form-control" placeholder="Comment"}}
+      {{#if errors.body }}
+        <span class="help-block">{{format-error errors.body}}</span>
+      {{/if}}
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" {{action "save"}}>Create Comment</button>
+      <a href="javascript:;" {{action 'cancel'}} class="btn btn-warning">Cancel</a>
+    </div>
+  </form>
+</div>
+</div>

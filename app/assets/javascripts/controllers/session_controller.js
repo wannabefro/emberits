@@ -40,6 +40,7 @@ App.SessionController = Ember.ObjectController.extend({
     logout: function() {
       $.ajax({url: '/session/', type: 'delete'});
       this.reset();
+      this.store.init();
       this.transitionToRoute('index');
     }
   }

@@ -19,18 +19,23 @@
     <p class="lead">No description available</p>
   {{/if}}
   <hr>
+
   {{#if comments.length}}
     <div class="comments">
       {{#each comment in comments}}
+        {{log comment}}
         <li class="comment">
-          <p class="author"><strong>{{user.username}}</strong> - {{timeAgo comment.created_at}}</p>
+          <p class="author"><strong>{{comment.user.username}}</strong> - {{timeAgo comment.created_at}}</p>
           <span>
-            {{comment.content}}
+            {{comment.body}}
           </span>
         </li>
       {{/each}}
     </div>
   {{/if}}
-  {{#link-to 'comment'}}Add Comment <span class='glyphicon glyphicon-plus-sign'></span>{{/link-to}}
+
   {{outlet}}
+  <div {{bind-attr class="newCommentPath:hide-new-mit"}}>
+    {{#link-to 'comments.new'}}Add Comment <span class='glyphicon glyphicon-plus-sign'></span>{{/link-to}}
+  </div>
 </div>
