@@ -3,3 +3,5 @@ App.MitsRoute = Ember.Route.extend({
     return this.store.find('mit');
   }
 });
+
+

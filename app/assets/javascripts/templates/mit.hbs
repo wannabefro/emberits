@@ -23,7 +23,6 @@
   {{#if comments.length}}
     <div class="comments">
       {{#each comment in comments}}
-        {{log comment}}
         <li class="comment">
           <p class="author"><strong>{{comment.user.username}}</strong> - {{timeAgo comment.created_at}}</p>
           <span>

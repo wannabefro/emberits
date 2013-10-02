@@ -19,6 +19,9 @@
 //= require_self
 //= require emberits
 //= require twitter/bootstrap
+Ember.FEATURES["query-params"] = true;
+
+
 
 // for more details see: http://emberjs.com/guides/application/
 App = Ember.Application.create();

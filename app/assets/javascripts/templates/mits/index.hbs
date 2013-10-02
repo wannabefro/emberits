@@ -2,24 +2,24 @@
   <div class="page-header">
     <h1>MIT's <small>for {{niceDate date}}</small></h1>
   </div>
-  {{#each mit in filteredMits}}
+  {{#each}}
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">
-          {{#link-to 'mit' mit}}
-            {{mit.title}}
+          {{#link-to 'mit' this}}
+            {{title}}
           {{/link-to}}
-          {{#if mit.tags.length}}
-            {{#each tag in mit.tags}}
+          {{#if tags.length}}
+            {{#each tag in this.tags}}
               {{#link-to 'tag' tag.id tagName="a" classNames = "label label-info"}}{{tag.name}}{{/link-to}}
             {{/each}}
           {{/if}}
-          <small class="pull-right">{{mit.comments.length}} comment{{pluralize mit.comments.length}} </small>
+          <small class="pull-right">{{comments.length}} comment{{pluralize comments.length}} </small>
         </h3>
       </div>
-      {{#if mit.description.length}}
+      {{#if description.length}}
         <div class="panel-body">
-          <p>{{mit.description}}</p>
+          <p>{{description}}</p>
         </div>
       {{/if}}
     </div>

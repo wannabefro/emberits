@@ -15,7 +15,6 @@ App.CommentsNewController = Ember.ObjectController.extend({
     }
   },
   onDidCreate: function(comment) {
-    debugger;
     this.store.push('comment', comment.get('data'));
     return this.transitionToRoute('mit', comment.mit);
   },
