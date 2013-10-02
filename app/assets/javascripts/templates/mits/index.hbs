@@ -11,7 +11,9 @@
           {{/link-to}}
           {{#if tags.length}}
             {{#each tag in this.tags}}
-              {{#link-to 'tag' tag.id tagName="a" classNames = "label label-info"}}{{tag.name}}{{/link-to}}
+              <span class="tag-label">
+                {{#link-to 'tag' tag.id tagName="a" classNames="label label-success"}}{{tag.name}}{{/link-to}}
+              </span>
             {{/each}}
           {{/if}}
           <small class="pull-right">{{comments.length}} comment{{pluralize comments.length}}</small>
