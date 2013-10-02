@@ -1,9 +1,10 @@
 App.Mit = DS.Model.extend({
-  title: DS.attr('string'),
+  title: DS.attr(),
   created_at: DS.attr(),
-  description: DS.attr('string'),
+  description: DS.attr(),
   comments: DS.hasMany('comment'),
-  tagList: DS.attr('string'),
+  complete: DS.attr(),
+  tagList: DS.attr(),
   tags: DS.hasMany('tag'),
   user: DS.belongsTo('user'),
 

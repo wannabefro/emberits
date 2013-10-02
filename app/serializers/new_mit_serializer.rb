@@ -1,7 +1,7 @@
 class NewMitSerializer < ActiveModel::Serializer
 
   embed :ids
-  attributes :title, :description, :created_at, :id
+  attributes :title, :description, :created_at, :id, :complete
   has_many :comments, key: :comments
   has_many :tags, key: :tags
   has_one :user

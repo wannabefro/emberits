@@ -21,10 +21,16 @@ class Api::MitsController < ApplicationController
     end
   end
 
+  def update
+    @mit = Mit.find(params[:id])
+    @mit.update_attributes!(mit_params)
+    render json: @mit, serializer: NewMitSerializer, root: 'mit'
+  end
+
   private
 
   def mit_params
-    params.require(:mit).permit(:title, :description)
+    params.require(:mit).permit(:title, :description, :complete)
   end
 
 end

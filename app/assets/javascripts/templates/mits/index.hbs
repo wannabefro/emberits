@@ -3,7 +3,7 @@
     <h1>MIT's <small>for {{niceDate date}}</small></h1>
   </div>
   {{#each}}
-    <div class="panel panel-primary">
+    <div {{bind-attr class=":panel complete:panel-default:panel-primary"  }}>
       <div class="panel-heading">
         <h3 class="panel-title">
           {{#link-to 'mit' this}}
@@ -14,7 +14,7 @@
               {{#link-to 'tag' tag.id tagName="a" classNames = "label label-info"}}{{tag.name}}{{/link-to}}
             {{/each}}
           {{/if}}
-          <small class="pull-right">{{comments.length}} comment{{pluralize comments.length}} </small>
+          <small class="pull-right">{{comments.length}} comment{{pluralize comments.length}}</small>
         </h3>
       </div>
       {{#if description.length}}
@@ -23,5 +23,9 @@
         </div>
       {{/if}}
     </div>
+    {{#if complete}}
+    {{else}}
+      <button class="btn btn-primary" {{action "complete" this}}>Done <span class="glyphicon glyphicon-ok"></span></button>
+    {{/if}}
   {{/each}}
 </div>
