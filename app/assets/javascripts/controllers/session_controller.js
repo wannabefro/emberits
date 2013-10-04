@@ -32,10 +32,13 @@ App.SessionController = Ember.ObjectController.extend({
       var self = this,
       data = this.getProperties('username', 'password');
       $.post('/session/', data, null, 'json').then(function (response) {
-        self.set('errorMessage', response.message);
         self.setCurrentUser(response.user_id);
+      }, function(response){
+        self.set('errorMessage', response.message);
+      }).then(function() {
+        var today = moment(new Date()).format("MM-DD-YYYY");
+        self.transitionToRoute('mits.index', {queryParams: {date: today}});
       });
-      this.transitionToRoute('index');
     },
     logout: function() {
       $.ajax({url: '/session/', type: 'delete'});

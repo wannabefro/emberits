@@ -1,4 +1,5 @@
 App.MitsIndexController = Ember.ArrayController.extend({
+  needs: 'mits',
 
   actions: {
 

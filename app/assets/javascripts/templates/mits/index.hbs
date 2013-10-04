@@ -1,6 +1,6 @@
 <div class="day-mits">
   <div class="page-header">
-    <h1>MIT's <small>for {{niceDate date}}</small></h1>
+    <h1>MIT's <small>for {{niceDate this.content.query.date}}</small></h1>
   </div>
   {{#each}}
     <div {{bind-attr class=":panel complete:panel-default:panel-primary"  }}>
@@ -12,7 +12,7 @@
           {{#if tags.length}}
             {{#each tag in this.tags}}
               <span class="tag-label">
-                {{#link-to 'tag' tag.id tagName="a" classNames="label label-success"}}{{tag.name}}{{/link-to}}
+                {{#link-to 'tag' tag.id tagName="a" classNames="label label-default"}}{{tag.name}}{{/link-to}}
               </span>
             {{/each}}
           {{/if}}

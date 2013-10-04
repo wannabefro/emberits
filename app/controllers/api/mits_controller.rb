@@ -1,7 +1,11 @@
 class Api::MitsController < ApplicationController
 
   def index
-    @mits = Mit.where(:user_id => current_user.id).all
+    if params[:date]
+      @mits = Mit.where(created_at: params[:date].."#{params[:date]} 23:59:59")
+    else
+      @mits = Mit.where(:user_id => current_user.id).all
+    end
     render json: @mits
   end
 
