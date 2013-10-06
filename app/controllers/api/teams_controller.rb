@@ -1,5 +1,10 @@
 class Api::TeamsController < ApplicationController
 
+  def index
+    @teams = current_user.teams
+    render json: @teams
+  end
+
   def create
     @team = Team.new(team_params)
     @team.users = User.where(id: params[:team][:users])

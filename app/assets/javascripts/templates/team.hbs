@@ -1,1 +1,12 @@
-<h1>{{name}}</h1>
+<div class="team">
+  <h1>{{name}}</h1>
+  <hr>
+  <div>
+    <p><strong>Members:</strong></p>
+    <p>
+      {{#each user in users}}
+        {{user.username}}
+      {{/each}}
+    </p>
+  </div>
+</div>

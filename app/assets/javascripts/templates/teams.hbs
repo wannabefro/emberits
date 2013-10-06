@@ -1,7 +1,13 @@
 <div class="col-md-4">
-  <div class="team-group">
-    <p>Hi I'm a team</p>
-  </div>
+  <div class="team-list">
+    <h1>My Teams</h1>
+    <hr>
+    <div class="list-group">
+      {{#each}}
+        {{#link-to 'team' this classNames='list-group-item'}}{{name}}{{/link-to}}
+      {{/each}}
+   </div>
+ </div>
 </div>
 <div class="col-md-8">
   {{outlet}}
