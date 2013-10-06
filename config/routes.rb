@@ -15,10 +15,11 @@ Emberits::Application.routes.draw do
   root 'application#index'
 
   namespace :api do
+    resources :teams
     resources :comments
     resources :mits
     resources :tags
-    resources :users, only: [:show]
+    resources :users, only: [:index, :show]
   end
 
   # Example of regular route:

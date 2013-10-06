@@ -15,6 +15,10 @@ App.Router.map(function() {
   this.resource("tags", {path: "/tags"}, function() {
     this.resource("tag", {path: ":tag_id"});
   });
+  this.resource("teams", function() {
+    this.route("new", {path: "/new"});
+    this.resource("team", {path: ":team_id"});
+  });
   this.resource('session');
   this.resource('registration', function() {
     this.route('new');

@@ -3,4 +3,5 @@ class UserSerializer < ActiveModel::Serializer
   attributes :id, :username, :email
   has_many :mits, keys: :mits
   has_many :comments, keys: :comments
+  has_many :teams, keys: :teams
 end

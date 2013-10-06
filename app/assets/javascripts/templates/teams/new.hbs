@@ -1,0 +1,24 @@
+<div class="new-team">
+  <h1>Create a new team</h1>
+  <hr>
+  <div class="form horizontal">
+    <div {{bind-attr class=":form-group errors.name:has-error"}}>
+      {{input type="text" value=name class="form-control" placeholder="Team name"}}
+      {{#if errors.name }}
+        <span class="help-block">{{format-error errors.name}}</span>
+      {{/if}}
+    </div>
+    <div {{bind-attr class=":form-group errors.userList:has-error"}}>
+      {{input type="text" value=userList class="form-control" placeholder="Add your team members here"}}
+      <span class="help-block">Seperate each team member with a comma</span>
+      {{#if errors.userList }}
+        <span class="help-block">{{format-error errors.userList}}</span>
+      {{/if}}
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" {{action "save"}}>Create MIT</button>
+      <a href="javascript:;" {{action 'cancel'}} class="btn btn-warning">Cancel</a>
+    </div>
+  </form>
+</div>
+</div>

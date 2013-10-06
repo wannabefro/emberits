@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
     :case_sensitive => false
   }
 
+  has_many :user_teams
+  has_many :teams, through: :user_teams
+
   attr_accessor :login
 
     def self.find_first_by_auth_conditions(warden_conditions)
