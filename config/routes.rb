@@ -16,6 +16,7 @@ Emberits::Application.routes.draw do
 
   namespace :api do
     resources :teams
+    resources :memberships
     resources :comments
     resources :mits
     resources :tags

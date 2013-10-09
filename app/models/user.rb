@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
     :case_sensitive => false
   }
 
-  has_many :user_teams
-  has_many :teams, through: :user_teams
+  has_many :memberships
+  has_many :teams, through: :memberships
 
   attr_accessor :login
 

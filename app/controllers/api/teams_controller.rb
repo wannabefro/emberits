@@ -9,6 +9,9 @@ class Api::TeamsController < ApplicationController
     @team = Team.new(team_params)
     @team.users = User.where(id: params[:team][:users])
     if @team.save
+      membership = @team.memberships.where(user_id: current_user.id).first
+      membership.approve
+      membership.save
       render json: @team
     else
       render json: { errors: @team.errors }, status: :unprocessable_entity

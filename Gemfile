@@ -25,6 +25,7 @@ gem 'ember-source', '1.0.0'
 gem 'devise'
 
 gem 'acts-as-taggable-on'
+gem 'state_machine'
 
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

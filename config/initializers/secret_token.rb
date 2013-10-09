@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Emberits::Application.config.secret_key_base = 'd967d387d00920bd555be47a59c3c0725ecf055070401c0e28550e9a984ffa943d97cd3a28d7582f725919120b215019f6cc4374d430d151588d86ae9382e94a'
+Emberits::Application.config.secret_key_base = ENV['SECRET_KEY']

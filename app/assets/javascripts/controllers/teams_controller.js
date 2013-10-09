@@ -1,1 +1,3 @@
-App.TeamsController = Ember.ArrayController.extend();
+App.TeamsController = Ember.ArrayController.extend({
+  needs: 'session'
+});

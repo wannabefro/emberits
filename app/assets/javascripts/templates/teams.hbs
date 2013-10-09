@@ -1,10 +1,19 @@
 <div class="col-md-4">
   <div class="team-list">
-    <h1>My Teams</h1>
+    <h3>My Invitations</h3>
     <hr>
     <div class="list-group">
-      {{#each}}
-        {{#link-to 'team' this classNames='list-group-item'}}{{name}}{{/link-to}}
+      {{#each invitation in controllers.session.currentUser.invitations}}
+        {{#if invitation.team.name}}
+          {{#link-to 'team' invitation.team classNames='list-group-item'}}{{invitation.team.name}}{{/link-to}}
+        {{/if}}
+      {{/each}}
+    </div>
+    <h3>My Teams</h3>
+    <hr>
+    <div class="list-group">
+      {{#each team in controllers.session.currentUser.currentTeams}}
+        {{#link-to 'team' team.team classNames='list-group-item'}}{{team.team.name}}{{/link-to}}
       {{/each}}
    </div>
  </div>

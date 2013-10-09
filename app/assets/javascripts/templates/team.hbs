@@ -1,12 +1,26 @@
 <div class="team">
   <h1>{{name}}</h1>
+    {{#if invited}}
+      <button class='btn btn-primary'{{action 'accept'}}>Accept</button>
+      <button class='btn btn-warning'{{action 'reject'}}>Reject</button>
+    {{/if}}
   <hr>
   <div>
     <p><strong>Members:</strong></p>
     <p>
-      {{#each user in users}}
-        {{user.username}}
+      {{#each member in members}}
+        {{member.user.username}}
       {{/each}}
+    </p>
+    <p><strong>Pending Members:</strong></p>
+    <p>
+      {{#if pendingMembers}}
+        {{#each member in pendingMembers}}
+          {{member.user.username}}
+        {{/each}}
+      {{else}}
+        None
+      {{/if}}
     </p>
   </div>
 </div>

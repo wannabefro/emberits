@@ -4,7 +4,11 @@ App.TeamsNewController = Ember.ObjectController.extend({
   actions: {
     save: function() {
       var self = this;
-      var userList = this.get('userList').replace(/\s/g, "").split(',');
+      if (typeof this.get('userList') == 'undefined'){
+        var userList = [];
+      } else {
+        var userList = this.get('userList').replace(/\s/g, "").split(',');
+      };
       userList.push(this.get('controllers.session.currentUser').get('username'));
       this.store.find('user', {username: userList}).then(function(response){
         self.get('users').set('content', response.get('content'));

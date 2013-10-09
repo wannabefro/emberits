@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 20131006154425) do
     t.date "date", null: false
   end
 
+  create_table "memberships", force: true do |t|
+    t.integer  "user_id",                        null: false
+    t.integer  "team_id",                        null: false
+    t.string   "state",      default: "pending"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "mits", force: true do |t|
     t.string   "title",                       null: false
     t.text     "description"
@@ -56,13 +64,6 @@ ActiveRecord::Schema.define(version: 20131006154425) do
 
   create_table "teams", force: true do |t|
     t.string   "name",       null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_teams", force: true do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "team_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
