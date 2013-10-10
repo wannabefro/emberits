@@ -11,6 +11,7 @@ class Api::TeamsController < ApplicationController
     if @team.save
       membership = @team.memberships.where(user_id: current_user.id).first
       membership.approve
+      membership.role = 'owner'
       membership.save
       render json: @team
     else

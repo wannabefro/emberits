@@ -10,6 +10,10 @@ App.Team = DS.Model.extend({
 
   pendingMembers: function(){
     return this.get('memberships').filterBy('state', 'pending');
+  }.property('memberships'),
+
+  admins: function(){
+    return this.get('memberships').filterBy('role', 'admin');
   }.property('memberships')
 
 })

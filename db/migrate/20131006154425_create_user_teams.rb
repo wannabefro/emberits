@@ -4,6 +4,7 @@ class CreateUserTeams < ActiveRecord::Migration
       t.integer :user_id, null: false
       t.integer :team_id, null: false
       t.string :state, default: 'pending'
+      t.string :role, default: 'user'
 
       t.timestamps
     end

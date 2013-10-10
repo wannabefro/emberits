@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20131006154425) do
     t.integer  "user_id",                        null: false
     t.integer  "team_id",                        null: false
     t.string   "state",      default: "pending"
+    t.string   "role",       default: "user"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
