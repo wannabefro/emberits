@@ -1,19 +1,43 @@
 App.TeamController = Ember.ObjectController.extend({
 
+  pendingInvitation: false,
+  owner: false,
   needs: 'session',
 
   invited: function(){
-    var user = this.get('controllers.session.currentUser');
-    if (user != null) {
-      var invitations = this.get('controllers.session.currentUser.invitations').filterBy('team', this.get('content'));
-    }
-      if (invitations != [] && invitations != null){
-        if (invitations.filterBy('state', 'pending').length == 1){
-
-          return true;
-        }
+    var self = this;
+    this.store.find('user', 'currentUser').then(function(user){
+      var invitations = user.get('invitations').filterBy('team', self.get('content'));
+      if (invitations.filterBy('state', 'pending').length == 1){
+        self.set('pendingInvitation', true);
+      } else {
+        self.set('pendingInvitation', false);
       }
+    }, function(){
+        self.set('pendingInvitation', false);
+    });
+
+    if (self.get('pendingInvitation') == true){
+      return true;
+    }
   }.property('pendingMembers'),
+
+  userAdmin: function(){
+    var self = this;
+    this.store.find('user', 'currentUser').then(function(user){
+      if (self.get('admins').filterBy('user', user).length == 1){
+        self.set('owner', true);
+      } else {
+        self.set('owner', false);
+      }
+    }, function(){
+        self.set('owner', false);
+    });
+
+    if (self.get('owner') == true){
+      return true;
+    }
+  }.property('admins'),
 
   actions: {
     accept: function() {

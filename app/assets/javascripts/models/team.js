@@ -13,7 +13,7 @@ App.Team = DS.Model.extend({
   }.property('memberships'),
 
   admins: function(){
-    return this.get('memberships').filterBy('role', 'admin');
+    return this.get('memberships').filterBy('role', 'owner');
   }.property('memberships')
 
 })
